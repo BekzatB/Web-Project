@@ -1,0 +1,24 @@
+<body >
+  <div *ngIf="logged" id="course_content">
+    <div *ngFor="let c of courses" id="content_detail" >
+      <p><strong class="key-words">Course name:</strong> <a href="{{c.url}}">{{c.name}}</a></p>
+      <p> <strong class="key-words">Price:</strong> ${{c.price}} </p>
+      <div>
+        <p><strong class="key-words">Rate:</strong> {{c.rate}} <img id="rate" src="{{getRate(c.rate)}}" alt="rate"></p>
+      </div>
+
+      <div>
+        <p id="description"><strong class="key-words">Description:</strong> {{c.description}} </p>
+      </div>
+
+      <div>
+        <p><strong class="key-words">Level:</strong> {{c.level.name}} <img id="level" src="{{getLevel(c.level.id)}}" alt="level"></p>
+      </div>
+
+    </div>
+  </div>
+  <div *ngIf="!logged" style="text-align: center;">
+    <p>To view list of courses, please <a routerLink="/login" style="text-decoration: none;">login</a></p>
+
+  </div>
+</body>
