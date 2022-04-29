@@ -7,26 +7,27 @@ import { Author, News } from './models';
   providedIn: 'root'
 })
 export class NewsService {
+  // tslint:disable-next-line:variable-name
   BASE_URl = 'http://localhost:8000';
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getNews(): Observable<News[]>{
     return this.http.get<News[]>(`${this.BASE_URl}/api/news/`);
   }
 
-  getNewsByCategory(id:number):Observable<News[]>{
+  getNewsByCategory(id: number): Observable<News[]>{
     return this.http.get<News[]>(`${this.BASE_URl}/api/categories/${id}/news/`);
   }
 
-  getNewsById(id:number):Observable<News>{
+  getNewsById(id: number): Observable<News>{
     return this.http.get<News>(`${this.BASE_URl}/api/news/${id}`);
   }
-  
-  addNews(news: News):Observable<News>{
+
+  addNews(news: News): Observable<News>{
     return this.http.post<News>(`${this.BASE_URl}/api/news/`, news);
   }
 
-  addAuthor(author: Author):Observable<Author>{
+  addAuthor(author: Author): Observable<Author>{
     return this.http.post<Author>(`${this.BASE_URl}/api/authors/`, author);
   }
 }

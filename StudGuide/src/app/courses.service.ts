@@ -6,8 +6,9 @@ import { Course } from './models';
   providedIn: 'root'
 })
 export class CoursesService {
+  // tslint:disable-next-line:variable-name
   BASE_URl = 'http://localhost:8000';
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getCourses(): Observable<Course[]>{
     return this.http.get<Course[]>(`${this.BASE_URl}/api/courses/`);

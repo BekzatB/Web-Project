@@ -4,7 +4,7 @@ export interface Category{
 }
 export interface Author{
     id: number;
-    name: string; 
+    name: string;
     surname: string;
     email: string;
 }
@@ -31,7 +31,7 @@ export interface Course{
     url: string;
 }
 export interface Review{
-    id:number;
+    id: number;
     sender: string;
     text: string;
 }

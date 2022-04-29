@@ -1,4 +1,3 @@
-import { StaticSymbol } from '@angular/compiler';
 import { Component, OnInit, Output } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { CategoryService } from '../category.service';
@@ -11,9 +10,9 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class LoginPageComponent implements OnInit {
   // static logged:boolean;
-  logged=false;
-  username = "";
-  password = "";
+  logged = false;
+  username = '';
+  password = '';
 
   constructor(private categoryService: CategoryService) {
    }
@@ -25,16 +24,18 @@ export class LoginPageComponent implements OnInit {
     }
   }
 
+  // tslint:disable-next-line:typedef
   login(){
-    this.categoryService.login(this.username, this.password).subscribe((data)=>{
+    this.categoryService.login(this.username, this.password).subscribe((data) => {
       localStorage.setItem('token', data.token);
       this.logged = true;
-      this.username = "";
-      this.password = "";
+      this.username = '';
+      this.password = '';
       HeaderComponent.logged = this.logged;
     });
-    
+
   }
+  // tslint:disable-next-line:typedef
   isItLogged(){
     return HeaderComponent.logged;
   }
